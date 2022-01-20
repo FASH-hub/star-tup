@@ -35,9 +35,9 @@ class AuthController extends Controller
         $result = $user->save();
 
         if ($result) {
-            return back()->with('success', 'You have been successfully registered');
+            return ['User' => 'has been successfully registered'];
         } else {
-            return back()->with('fail', 'Registration has been failed');
+            return ['User' => 'failed to be registered'];
         }
     }
 
@@ -61,12 +61,12 @@ class AuthController extends Controller
 
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put('userId', $user->id);
-                return redirect('/auth.dashboard');
+                return ['You' => 'have been successfully logged in'];
             } else {
-                return back()->with('fail', 'Unmatched password');
+                return ['You' => 'failed to be logged in'];
             }
         } else {
-            return back()->with('fail', 'Unknown credentials');
+            return ['Unknown crediatials'];
         }
     }
 
