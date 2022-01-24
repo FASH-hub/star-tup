@@ -50,26 +50,16 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:8|max:13'
+            'password' => 'required'
         ]);
-
-        $user = Users::where('email', $request->email)->first();
-
-        $user->password = Hash::make($request->password);
-
-        if ($user) {
-
-            if (Hash::check($request->password, $user->password)) {
-                $request->session()->put('userId', $user->id);
-                return ['You' => 'have been successfully logged in'];
-            } else {
-                return ['You' => 'failed to be logged in'];
-            }
+        $user = Users::where(['email' => $request->email])->first();
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return ["message" => "Credentials issue, login failed"];
         } else {
-            return ['Unknown crediatials'];
+            return ["message" => "You have been successfully logged in"];
         }
     }
-
+    
     /*
     * ------------------------------
     * Logout
@@ -99,9 +89,9 @@ class AuthController extends Controller
         $resutl = $user->delete();
 
         if ($resutl) {
-            return ["member" => "has been deleted"];
+            return ["message" => "User has been deleted"];
         } else {
-            return ["member" => "couldn't be deleted"];
+            return ["message" => "User couldn't be deleted"];
         }
     }
 
@@ -126,9 +116,9 @@ class AuthController extends Controller
 
         $member = $user->save();
         if ($member) {
-            return ["member" => " updated"];
+            return ["message" => "user updated"];
         } else {
-            return ["member" => " couldn't be updated"];
+            return ["message" => " user couldn't be updated"];
         }
     }
 }
