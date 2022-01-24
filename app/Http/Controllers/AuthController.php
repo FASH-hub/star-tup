@@ -54,12 +54,34 @@ class AuthController extends Controller
         ]);
         $user = Users::where(['email' => $request->email])->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
+            $request->session()->put('userId', $user->id);
             return ["message" => "Credentials issue, login failed"];
         } else {
             return ["message" => "You have been successfully logged in"];
         }
     }
+
+    /*
+    * ------------------------------
+    * Display all users
+    * ------------------------------
+    */
+    public function displayUsers()
+    {
+        return Users::all();
+    }
+
+    /*
+    * ------------------------------
+    * Display  user by id
+    * ------------------------------
+    */
+    public function displayUsersId($id)
+    {
+        return Users::find($id);
+    }
     
+
     /*
     * ------------------------------
     * Logout
