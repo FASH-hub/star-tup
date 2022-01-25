@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TchatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,34 @@ Route::patch('register/{id}', [AuthController::class, 'updateUser']);
 
 // logout user
 Route::post('logout', [AuthController::class, 'logout']);
+
+/**
+ * ------------------------------
+ * Tchats routes
+ * ------------------------------
+ */
+
+// Displays all tchats
+Route::get('tchat', [TchatController::class, 'index']);
+
+//creates a new tchat
+Route::post('tchat', [TchatController::class, 'create']);
+
+//delete a tchat
+Route::delete('tchat/{id}', [TchatController::class, 'destroy']);
+
+//update a tchat
+Route::patch('tchat/{id}', [TchatController::class, 'update']);
+
+
+
+//Displays tchats by user
+Route::get('tchat/{id}', [TchatController::class, 'displayChatByUser']);
+
+//Displays user by tchat
+Route::get('tchat/{id}', [TchatController::class, 'displayUserByChat']);
+
+//
+Route::post('linkedTchat/{id}', [ChatsController::class, 'attachUserTchat']);
+//
+Route::post('linkedUser/{id}', [ChatsController::class, 'attachTchatUser']);

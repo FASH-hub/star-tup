@@ -10,8 +10,8 @@ class Users extends Model
     use HasFactory;
     protected $table = 'users';
 
-    public function tchat()
+    public function userTchat()
     {
-        return $this->belongsToMany(Users::class, 'tchats_Users');
+        return $this->belongsToMany(Tchat::class, 'tchats_Users');
     }
 }
