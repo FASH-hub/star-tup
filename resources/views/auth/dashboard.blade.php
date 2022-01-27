@@ -1,5 +1,15 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+</head>
+<body>
+    <?php
     
-$user = {{$data->name}}
-echo $user . 'Thanks for logging in. You are all welcome';
+echo 'Almost there';
 ?>
+</body>
+</html>
