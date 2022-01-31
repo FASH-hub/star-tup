@@ -9,7 +9,7 @@
 <body>
     <?php
     
-echo 'Almost there';
+echo "User's dashboard";
 ?>
 </body>
 </html>

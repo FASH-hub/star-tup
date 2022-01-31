@@ -1,4 +1,5 @@
 # STAR_TUP
 
-Online platform on wich entrepreneurs interact each other about their business.
-This project is developed with Laravel framework.
+Back-end development for an online platform on wich entrepreneurs interact each other
+via achat system.
+It is developed using Php language with Laravel framework.
