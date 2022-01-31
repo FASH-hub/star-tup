@@ -95,9 +95,9 @@ class TchatController extends Controller
         $result = $tchat->save();
 
         if ($result) {
-            return ["message" => 'your message has been updated successfully'];
+            return ['Your message has been updated successfully'];
         } else {
-            return ['message' => 'failed to be updated'];
+            return ['Message failed to be updated'];
         }
 
     }
@@ -114,9 +114,9 @@ class TchatController extends Controller
         $result = $tchat->delete();
 
         if ($result) {
-            return ["message" => 'your message has been deleted'];
+            return ['your message has been deleted'];
         } else {
-            return ['message' => 'failed to be deleted'];
+            return ['failed to be deleted'];
         }
 
     }

@@ -35,9 +35,9 @@ class AuthController extends Controller
         $result = $user->save();
 
         if ($result) {
-            return ['User' => 'has been successfully registered'];
+            return ['User has been successfully registered'];
         } else {
-            return ['User' => 'failed to be registered'];
+            return ['User failed to be registered'];
         }
     }
 
@@ -55,9 +55,9 @@ class AuthController extends Controller
         $user = Users::where(['email' => $request->email])->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
             $request->session()->put('userId', $user->id);
-            return ["message" => "Credentials issue, login failed"];
+            return ["Credentials issue, login failed"];
         } else {
-            return ["message" => "You have been successfully logged in"];
+            return ["You have been successfully logged in"];
         }
     }
 
@@ -111,9 +111,9 @@ class AuthController extends Controller
         $resutl = $user->delete();
 
         if ($resutl) {
-            return ["message" => "User has been deleted"];
+            return ["User has been deleted"];
         } else {
-            return ["message" => "User couldn't be deleted"];
+            return ["User couldn't be deleted"];
         }
     }
 
@@ -138,9 +138,9 @@ class AuthController extends Controller
 
         $member = $user->save();
         if ($member) {
-            return ["message" => "user updated"];
+            return ["user updated"];
         } else {
-            return ["message" => " user couldn't be updated"];
+            return [" user couldn't be updated"];
         }
     }
 }
