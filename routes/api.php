@@ -69,3 +69,6 @@ Route::get('tchat', [TchatController::class, 'index']);
 //Displays tchats by user
 Route::get('tchat/{id}', [TchatController::class, 'displayChatByUser']);
 
+//Displays user by tchat
+Route::get('userByTchat/{id}', [TchatController::class, 'displayUserByChat']);
+

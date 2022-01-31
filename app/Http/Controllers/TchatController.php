@@ -64,7 +64,7 @@ class TchatController extends Controller
         $tchat->save();
 
         $tchat->tchatByUser()->attach($id);
-        return ["message" => "saved successfully"];
+        return [" Message posted successfully"];
     }
 
 
@@ -75,9 +75,9 @@ class TchatController extends Controller
      */
     public function displayUserByChat($id)
     {
-        $user = Tchat::find($id);
-        $tchat = $user->tchatUser;
-        return $tchat;
+        $tchat = Tchat::find($id);
+        $user = $tchat->tchatByUser;
+        return $user;
     }
 
     /**

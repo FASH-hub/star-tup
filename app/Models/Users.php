@@ -12,6 +12,6 @@ class Users extends Model
 
     public function userTchat()
     {
-        return $this->belongsToMany(Tchat::class, 'tchats_Users');
+        return $this->belongsToMany(Tchat::class, 'tchat_users');
     }
 }
