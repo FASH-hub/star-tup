@@ -10,7 +10,7 @@ class Tchat extends Model
     use HasFactory;
     protected $tchat = 'tchats';
 
-    public function tchatUser()
+    public function tchatByUser()
     {
         return $this->belongsToMany(Users::class, 'tchats_Users');
     }

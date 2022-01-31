@@ -22,24 +22,6 @@ class TchatController extends Controller
 
 
     /**
-     * Show the form for creating and saving a new tchat.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        $tchat = new Tchat();
-        $tchat->subject = $request->subject;
-        $tchat->bodys = $request->bodys;
-        $result = $tchat->save();
-
-        if ($result) {
-            return ["message" => 'your message has been posted successfully'];
-        } else {
-            return ['message' => 'failed to be posted'];
-        }
-    }
-    /**
      * Display the specified tchat.
      *
      * @param  int  $id
@@ -51,36 +33,7 @@ class TchatController extends Controller
     }
 
 
-    /**
-     * Links user to tchat
-     * @param  \Illuminate\Http\Request  $request inputs
-     * @param  int  $id received user's id'
-     * @return string message
-     */
-    public  function attachUserTchat(Request $request, $id)
-    {
-        $request->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'birth_date' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|max:13'
-
-        ]);
-
-        $user = new Users();
-        $user->firstName = $request->firstName;
-        $user->lastName = $request->lastName;
-        $user->birth_date = $request->birth_date;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->motto = $request->motto;
-        $user->save();
-
-        $tchatId = $id;
-        $user->userTchat()->attach($tchatId);
-        return "Saved successfully";
-    }
+   
 
 
     /**
@@ -97,19 +50,20 @@ class TchatController extends Controller
     }
 
     /**
-     * Links tchat to user.
+     * Creates and links tchat to user.
      * 
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id received tchat's id
      * @return string message
      */
-    public function attachTchatUser(Request $request, $id)
+    public function createTchatByUser(Request $request, $id)
     {
         $tchat = new Tchat();
-        $tchat->tchats = $request->tchats;
+        $tchat->subject = $request->subject;
+        $tchat->bodys = $request->bodys;
         $tchat->save();
 
-        $tchat->tchatUser()->attach($id);
+        $tchat->tchatByUser()->attach($id);
         return ["message" => "saved successfully"];
     }
 

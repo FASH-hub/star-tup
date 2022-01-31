@@ -53,27 +53,19 @@ Route::post('logout', [AuthController::class, 'logout']);
  * ------------------------------
  */
 
-// Displays all tchats
-Route::get('tchat', [TchatController::class, 'index']);
-
-//creates a new tchat
-Route::post('tchat', [TchatController::class, 'create']);
-
-//delete a tchat
-Route::delete('tchat/{id}', [TchatController::class, 'destroy']);
+//Creates new tchat linked to the user
+Route::post('linkedUser/{id}', [TchatController::class, 'createTchatByUser']);
 
 //update a tchat
 Route::patch('tchat/{id}', [TchatController::class, 'update']);
 
+//delete a tchat
+Route::delete('tchat/{id}', [TchatController::class, 'destroy']);
+
+// Displays all tchats
+Route::get('tchat', [TchatController::class, 'index']);
 
 
 //Displays tchats by user
 Route::get('tchat/{id}', [TchatController::class, 'displayChatByUser']);
 
-//Displays user by tchat
-Route::get('tchat/{id}', [TchatController::class, 'displayUserByChat']);
-
-//
-Route::post('linkedTchat/{id}', [ChatsController::class, 'attachUserTchat']);
-//
-Route::post('linkedUser/{id}', [ChatsController::class, 'attachTchatUser']);
