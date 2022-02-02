@@ -143,4 +143,23 @@ class AuthController extends Controller
             return [" user couldn't be updated"];
         }
     }
+
+
+    /*
+    * ------------------------------
+    * Updates the password according to the user's received id.
+    * ------------------------------
+    */
+    function updatePsswd(Request $request, $id)
+    {
+        $psswd = $request->Users::find($id);
+        $psswd->password = Hash::make($request->password);
+        $result = $psswd->save();
+        if ($result) {
+            return ["Your assword has been updated successfully"];
+        } else {
+            return ["Your assword failed to be updated"];
+        }
+    }
+    
 }

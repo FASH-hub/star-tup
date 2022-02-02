@@ -27,6 +27,8 @@
        <li class="list-group-item">https://heroku-star-tup.herokuapp.com/api/deleteUser/id</li>
          <span>Route to update user's details<span>
       <li class="list-group-item">https://heroku-star-tup.herokuapp.com/api/updateUser/id</li>
+         <span>Route to update user's password</span>
+      <li class="list-group-item">https://heroku-star-tup.herokuapp.com/api/UpdatePsswd/id</li>
         <span>Route to logout<span>
       <li class="list-group-item">https://heroku-star-tup.herokuapp.com/api/logout</li>
     </ul>

@@ -44,6 +44,9 @@ Route::delete('deleteUser/{id}', [AuthController::class, 'deleteUser']);
 // update the user details
 Route::patch('UpdateUser/{id}', [AuthController::class, 'updateUser']);
 
+// update the user's password 
+Route::patch('UpdatePsswd/{id}', [AuthController::class, 'updatePsswd']);
+
 // logout user
 Route::post('logout', [AuthController::class, 'logout']);
 
