@@ -33,16 +33,16 @@ Route::post('register', [AuthController::class, 'registerUser']);
 Route::post('login', [AuthController::class, 'loginUser']);
 
 // display all users
-Route::get('user', [AuthController::class, 'displayUsers']);
+Route::get('displayUsers', [AuthController::class, 'displayUsers']);
 
 // display user by id
-Route::get('user/{id}', [AuthController::class, 'displayUsersId']);
+Route::get('displayUser/{id}', [AuthController::class, 'displayUsersId']);
 
 // delete user
-Route::delete('register/{id}', [AuthController::class, 'deleteUser']);
+Route::delete('deleteUser/{id}', [AuthController::class, 'deleteUser']);
 
 // update the user details
-Route::patch('register/{id}', [AuthController::class, 'updateUser']);
+Route::patch('UpdateUser/{id}', [AuthController::class, 'updateUser']);
 
 // logout user
 Route::post('logout', [AuthController::class, 'logout']);
@@ -57,18 +57,18 @@ Route::post('logout', [AuthController::class, 'logout']);
 Route::post('linkedUser/{id}', [TchatController::class, 'createTchatByUser']);
 
 //update a tchat
-Route::patch('tchat/{id}', [TchatController::class, 'update']);
+Route::patch('updateTchat/{id}', [TchatController::class, 'update']);
 
 //delete a tchat
-Route::delete('tchat/{id}', [TchatController::class, 'destroy']);
+Route::delete('deleteTchat/{id}', [TchatController::class, 'destroy']);
 
 // Displays all tchats
-Route::get('tchat', [TchatController::class, 'index']);
+Route::get('displayTchats', [TchatController::class, 'index']);
 
 
 //Displays tchats by user
-Route::get('tchat/{id}', [TchatController::class, 'displayChatByUser']);
+Route::get('displayTchatByUser/{id}', [TchatController::class, 'displayChatByUser']);
 
 //Displays user by tchat
-Route::get('userByTchat/{id}', [TchatController::class, 'displayUserByChat']);
+Route::get('displayUserByTchat/{id}', [TchatController::class, 'displayUserByChat']);
 
