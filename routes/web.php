@@ -14,4 +14,8 @@ use App\Http\Controllers\AppController;
 |
 */
 
-Route::get('/dashboard', [AppController::class, 'index']);
+
+
+Route::get('/', function () {
+    return view('dashboard');
+});
